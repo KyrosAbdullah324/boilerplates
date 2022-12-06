@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  jellyfin:
+    image: ghcr.io/linuxserver/jellyfin
+    container_name: jellyfin
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - /volume1/docker/jellyfin/config:/config
+      - /volume1/docker/jellyfin/cache:/cache
+      - /volume1/videos/tv-shows:/data/tvshows
+      - /volume1/videos/movies:/data/movies
+    ports:
+      - 8096:8096
+    restart: unless-stopped

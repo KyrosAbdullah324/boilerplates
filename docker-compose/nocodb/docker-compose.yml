@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  nocodb-db:
+    image: mariadb
+    container_name: nocodb-db
+    restart: always
+    volumes:
+    - /volume1/docker/nocodb:/var/lib/mysql
+
+  nocodb:
+    image: nocodb/nocodb
+    container_name: nocodb
+    restart: always
+    depends_on:
+    - nocodb-db
+    ports:
+      - 8631:8080
+      - 8632:8081
+      - 8633:8082
+      - 8634:8084

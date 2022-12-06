@@ -1,0 +1,10 @@
+version: "2.4"
+
+services:
+  octoprint:
+    image: octoprint/octoprint
+    restart: unless-stopped
+    ports:
+      - "8888:80"
+    volumes:
+      - /volume1/docker/octoprint:/octoprint

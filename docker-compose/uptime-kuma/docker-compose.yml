@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  kuma:
+    image: louislam/uptime-kuma:1
+    hostname: uptime-kuma
+    ports:
+      - 3001:3001
+    volumes:
+      - /volume1/docker/uptimekuma:/app/data
+    restart: unless-stopped
